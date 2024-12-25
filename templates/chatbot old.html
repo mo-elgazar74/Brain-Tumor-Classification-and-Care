@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medical Chatbot</title>
+    <style>
+        /* Styles for the chatbot interface */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+        
+        h1 {
+            color: #333;
+        }
+        
+        p {
+            margin-bottom: 5px;
+        }
+        
+        #chatForm {
+            margin-bottom: 20px;
+        }
+        
+        #userInput {
+            padding: 8px;
+            font-size: 16px;
+            width: 200px;
+        }
+        
+        button {
+            padding: 8px 16px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #007bff;
+            color: white;
+            border: none;
+        }
+        
+        button:hover {
+            background-color: #0056b3;
+        }
+        
+        #chatArea {
+            border: 1px solid #ccc;
+            padding: 10px;
+            max-width: 400px;
+            min-height: 200px;
+            overflow-y: auto;
+        }
+        
+        #chatArea p {
+            margin: 5px 0;
+        }
+        
+        #chatArea p strong {
+            color: #007bff;
+        }
+    </style>
+</head>
+<body>
+    <h1>Hello! My name is Snow, your medical chatbot.</h1>
+    <p>Type your message:</p>
+    <form id="chatForm">
+        <input type="text" id="userInput" />
+        <button type="button" onclick="sendMessage()">Send</button>
+    </form>
+    <div id="chatArea"></div>
+
+    <script>
+        function sendMessage() {
+            var userInput = document.getElementById("userInput").value;
+            document.getElementById("userInput").value = "";
+            
+            var chatArea = document.getElementById("chatArea");
+            chatArea.innerHTML += "<p><strong>You:</strong> " + userInput + "</p>";
+
+            fetch("/chat", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/x-www-form-urlencoded",
+                },
+                body: "user_input=" + userInput,
+            })
+            .then(response => response.json())
+            .then(data => {
+                chatArea.innerHTML += "<p><strong>Bot:</strong> " + data.response + "</p>";
+            });
+        }
+    </script>
+</body>
+</html>
