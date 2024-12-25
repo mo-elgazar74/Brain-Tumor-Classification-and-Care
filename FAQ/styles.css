@@ -1,0 +1,98 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #333;
+    padding: 10px 0;
+}
+
+header nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    margin: 0;
+}
+
+header nav ul li {
+    margin: 0 15px;
+}
+
+header nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+main {
+    padding: 20px;
+}
+
+#faq {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+#faq h1 {
+    text-align: center;
+    margin-bottom: 10px;
+    color:#d92cf9; /* This makes the word "FAQ" blue */
+}
+
+#faq h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.faq-item {
+    border-bottom: 1px solid #ddd;
+    padding: 15px 0;
+}
+
+.faq-question {
+    width: 100%;
+    text-align: left;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 15px 20px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    color: #d92cf9; /* Blue color for the question text */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.faq-question::after {
+    content: '▼'; /* Down arrow */
+    font-size: 12px;
+    transition: transform 0.3s;
+}
+
+.faq-question.active::after {
+    content: '▲'; /* Up arrow */
+    transform: rotate(180deg);
+}
+
+.faq-question:hover {
+    background-color: #f1f1f1;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.faq-answer {
+    display: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #21928c;
+}
+
+.faq-item.active .faq-answer {
+    display: block;
+}

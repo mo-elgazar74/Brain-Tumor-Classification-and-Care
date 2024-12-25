@@ -1,0 +1,31 @@
+1) install ollama :
+https://ollama.com/download/windows
+
+2) install llama3:8b-instruct-q3_K_L : ( The Model )
+ollama run llama3:8b-instruct-q3_K_L
+
+3) install docker desktop : 
+https://docs.docker.com/desktop/install/windows-install/
+
+4) install Open WebUI : ## run this code in terminal ## 	## You should install the model first ##
+docker run -d -p 3000:8080 --add-host=host.docker.internal:host-gateway -v open-webui:/app/backend/data --name open-webui --restart always ghcr.io/open-webui/open-webui:main 
+
+4.1) **Python 3.11 is required for this method**
+pip install open-webui
+open-webui serve
+
+5) For more details about OpenWebui you can visit:
+https://docs.openwebui.com/
+
+###################
+Notes :
+If your device is old and the model is running slowly you can use an API from Groq : https://groq.com/
+1) go to https://console.groq.com/keys
+2) sign in and go to API Keys
+3) create API Key
+4) go to your open-webui page
+5) open settings >> Admin Settings >> connections 
+6) add a new API field 
+7) insert this link in API base URL (https://api.groq.com/openai/v1)
+8) insert the API Key that you get from groq in API Key 
+9) don't forget to save
