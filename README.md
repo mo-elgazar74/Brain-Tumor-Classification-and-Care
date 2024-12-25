@@ -49,6 +49,17 @@ This project focuses on two main areas:
 
 ---
 
+## Dataset and Models
+- **Dataset**: To install the dataset, go to this link:
+  [Brain Tumor Classification MRI Dataset](https://www.kaggle.com/datasets/sartajbhuvaji/brain-tumor-classification-mri?)
+- **Models**:
+  - **First Model (TensorFlow)**: [Download TensorFlow Model](https://drive.google.com/file/d/1nCbXHx2LMmgRByJ8mG7OtPP0ZsSJUje-/view?usp=sharing)
+  - **Second Model (PyTorch)**: [Download PyTorch Model](https://drive.google.com/file/d/1LbFYQWl-gsi9tKo6SDNIwRTd0yi88GAJ/view?usp=sharing)
+
+After downloading the models, place them into the `assets` folder in the project directory to ensure they can be accessed by the deployment script.
+
+---
+
 ## How to Run the Project
 1. **Install Dependencies**: Ensure all required modules are installed using:
    ```bash
@@ -74,9 +85,7 @@ This project focuses on two main areas:
 ## Setting Up Open-WebUI (Optional for Chatbot)
 #### Method 1: Using Docker
 ```bash
-docker run -d -p 3000:8080 --add-host=host.docker.internal:host-gateway \
-  -v open-webui:/app/backend/data --name open-webui --restart always \
-  ghcr.io/open-webui/open-webui:main
+docker run -d -p 3000:8080 --add-host=host.docker.internal:host-gateway   -v open-webui:/app/backend/data --name open-webui --restart always   ghcr.io/open-webui/open-webui:main
 ```
 #### Method 2: Using Python
 ```bash
